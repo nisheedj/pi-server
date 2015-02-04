@@ -15,10 +15,8 @@ module.exports = function(grunt) {
       first: {
         files: [{
           nonull: true,
-          expand: true,
-          cwd: 'bower_components/bootstrap/dist/js',
-          src: ['bootstrap*.js'],
-          dest: 'app/js/vendor/'
+          src: 'bower_components/socket.io-client/socket.io.js',
+          dest: 'app/js/vendor/socket.io.js'
         }, {
           nonull: true,
           expand: true,
@@ -30,6 +28,12 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'bower_components/underscore',
           src: ['underscore*'],
+          dest: 'app/js/vendor/'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/bootstrap/dist/js',
+          src: ['bootstrap*.js'],
           dest: 'app/js/vendor/'
         }, {
           nonull: true,
@@ -69,7 +73,8 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('default', 'Show Build command', function() {
-    grunt.log.writeln('Please use the `grunt build` command');
+    grunt.log.writeln('Please use the `grunt first` command to begin' ['grey']);
+    grunt.log.writeln('Use the `grunt build` command subsequently' ['grey']);
   });
 
   grunt.registerTask('first', ['clean:first', 'copy:first']);
