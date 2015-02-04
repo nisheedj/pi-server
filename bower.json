@@ -1,0 +1,32 @@
+{
+  "name": "pi-server",
+  "version": "0.0.0",
+  "homepage": "https://github.com/nisheedj/pi-server",
+  "authors": [
+    "nisheedj <nisheedj@thoughtworks.com>"
+  ],
+  "description": "Server to handle robot controls using jonny five",
+  "main": "server.js",
+  "keywords": [
+    "pi",
+    "node",
+    "bot",
+    "serial",
+    "quad"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "angular": "~1.3.12",
+    "bootstrap": "~3.3.2",
+    "underscore": "~1.7.0"
+  }
+}
