@@ -28,3 +28,7 @@ node_modules
 .lock-wscript
 
 bower_components
+app/css
+app/js/vendor
+app/less/bootstrap
+app/fonts/bootstrap
