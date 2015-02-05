@@ -12,6 +12,7 @@ app.use('/css', express.static(path.join(__dirname, 'app', 'css')));
 app.use('/js', express.static(path.join(__dirname, 'app', 'js')));
 app.use('/img', express.static(path.join(__dirname, 'app', 'img')));
 app.use('/fonts', express.static(path.join(__dirname, 'app', 'fonts')));
+app.use('/partials', express.static(path.join(__dirname, 'app', 'partials')));
 
 /*Base index file*/
 app.get('/', function(req, res) {
