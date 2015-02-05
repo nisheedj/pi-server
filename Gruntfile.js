@@ -47,6 +47,54 @@ module.exports = function(grunt) {
           cwd: 'bower_components/bootstrap/less',
           src: ['**'],
           dest: 'app/less/bootstrap/'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular',
+          src: ['angular*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular-animate',
+          src: ['angular-animate*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular-mocks',
+          src: ['angular-mocks*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular-resource',
+          src: ['angular-resource*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular-route',
+          src: ['angular-route*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/angular-sanitize',
+          src: ['angular-sanitize*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/requirejs',
+          src: ['require*'],
+          dest: 'app/js/vendor'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'bower_components/almond',
+          src: ['almond*'],
+          dest: 'app/js/vendor'
         }]
       }
     },
@@ -61,15 +109,69 @@ module.exports = function(grunt) {
         files: {
           'app/css/bootstrap.css': 'app/less/bootstrap/bootstrap.less'
         }
+      },
+      piQuadApp: {
+        options: {
+          compress: true,
+        },
+        files: {
+          'app/css/pi-style.css': 'app/less/styles/pi-style.less'
+        }
       }
-    }
+    },
+    jshint: {
+      options: {
+        jshintrc: true,
+        reporter: require('jshint-stylish')
+      },
+      piQuadApp: ['./app/js/**/*.js']
+    },
+    requirejs: {
+      piQuadApp: {
+        options: {
+          baseUrl: './app/js',
+          mainConfigFile: 'app/js/rjsConfig.js',
+          deps: ['main', 'app', 'routes'],
+          out: 'app/js/pi.js',
+          optimize: 'uglify2',
+          name: './vendor/almond',
+          preserveLicenseComments: false
+        }
+      }
+    },
+    karma: {
+      piQuadApp: {
+        configFile: 'karma.conf.js',
+        singleRun: true
+      }
+    },
+    watch: {
+      piQuadAppJs: {
+        files: ['./app/js/**/*.js'],
+        tasks: ['build'],
+        options: {
+          spawn: false
+        }
+      },
+      piQuadAppCss: {
+        files: ['./app/less/**/*.less'],
+        tasks: ['build'],
+        options: {
+          spawn: false
+        }
+      }
+    },
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-karma');
 
   // Default task(s).
   grunt.registerTask('default', 'Show Build command', function() {
@@ -79,6 +181,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('first', ['clean:first', 'copy:first']);
 
-  grunt.registerTask('build', ['clean:build', 'less:bootstrap']);
+  grunt.registerTask('build', ['clean:build', 'less:bootstrap', 'less:piQuadApp', 'jshint:piQuadApp', 'requirejs:piQuadApp','watch']);
+
+  grunt.registerTask('unit', ['karma:piQuadApp']);
 
 };
