@@ -2,21 +2,22 @@
 define([
   'angular',
   'jquery',
+  'socketio',
   'angularroute',
   'angularsanitize',
   'angularanimate',
   'underscore',
   './modules'
 ], function(angular) {
-  var myApp = angular.module('myApp', [
+  var piQuadApp = angular.module('piQuadApp', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
-    //'myApp.filter',
-    //'myApp.provider',
-    //'myApp.service',
-    //'myApp.directive',
-    'myApp.controller'
+    //'piQuadApp.filter',
+    //'piQuadApp.provider',
+    //'piQuadApp.service',
+    //'piQuadApp.directive',
+    'piQuadApp.controller'
   ]);
-  return myApp;
+  return piQuadApp;
 });

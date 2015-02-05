@@ -1,4 +1,5 @@
 /*global define*/
 define([
-  './AppMainController'
+  './PiQuadController',
+  './HomeController'
 ], function() {});

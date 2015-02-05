@@ -1,4 +1,4 @@
-angular-requirejs-seed
+PI-SERVER
 ======================
 
 # Installation
@@ -6,13 +6,13 @@ Run `bower install`
 
 Run `npm install`
 
-Run `grunt firstrun`
+Run `grunt first`
 
 You are now set to code and enjoy the seed application
 
-Run `grunt` to compile the code
+Run `grunt build` to compile the code
 
-Run `grunt connect` to serve files at `http://localhost:9000`
+Run `node server.js` to serve files at `http://localhost:9000`
 
 Run `grunt unit` to run unit tests
 

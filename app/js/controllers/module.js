@@ -1,5 +1,5 @@
 /*global define*/
 define(['angular'],function(angular) {
-  var controllerModule = angular.module('myApp.controller',[]);
+  var controllerModule = angular.module('piQuadApp.controller',[]);
   return controllerModule;
 });

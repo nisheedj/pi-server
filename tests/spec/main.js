@@ -29,7 +29,8 @@ require.config({
     angularanimate: 'app/js/vendor/angular-animate.min',
     angularmocks: 'app/js/vendor/angular-mocks',
     angularresource: 'app/js/vendor/angular-resource',
-    underscore: 'app/js/vendor/underscore-min'
+    underscore: 'app/js/vendor/underscore-min',
+    socketio: 'app/js/vendor/socket.io'
   },
   shim: {
     angular: {
@@ -53,6 +54,9 @@ require.config({
     },
     underscore: {
       exports: '_'
+    },
+    socketio: {
+      exports: 'io'
     }
   },
 

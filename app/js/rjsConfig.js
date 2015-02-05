@@ -8,7 +8,8 @@ require.config({
     angularroute: 'vendor/angular-route.min',
     angularsanitize: 'vendor/angular-sanitize.min',
     angularanimate: 'vendor/angular-animate.min',
-    underscore: 'vendor/underscore-min'
+    underscore: 'vendor/underscore-min',
+    socketio: 'vendor/socket.io'
   },
   shim: {
     angular: {
@@ -26,6 +27,9 @@ require.config({
     },
     underscore: {
       exports: '_'
+    },
+    socketio: {
+      exports: 'io'
     }
   }
 });
