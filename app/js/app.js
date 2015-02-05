@@ -15,7 +15,7 @@ define([
     'ngAnimate',
     //'piQuadApp.filter',
     //'piQuadApp.provider',
-    //'piQuadApp.service',
+    'piQuadApp.service',
     //'piQuadApp.directive',
     'piQuadApp.controller'
   ]);

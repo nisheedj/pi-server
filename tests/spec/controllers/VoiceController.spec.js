@@ -1,17 +1,17 @@
 define(['angularmocks'], function() {
-  describe('HomeController', function() {
+  describe('VoiceController', function() {
     var scope = {};
     beforeEach(function() {
       module('piQuadApp.controller');
       inject(function($controller) {
-        $controller('HomeController', {
+        $controller('VoiceController', {
           $scope: scope
         });
       });
     });
-   
-    it('Testing HomeController', function() {
-        expect(scope.app.appName).toBe('Angular Pi Quad');
+
+    it('Testing title', function() {
+      expect(scope.title).toBe('Pi Quad Voice Controls');
     });
   });
 });

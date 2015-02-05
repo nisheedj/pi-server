@@ -1,5 +1,6 @@
 /*global define*/
 define([
   './PiQuadController',
-  './HomeController'
+  './HomeController',
+  './VoiceController'
 ], function() {});

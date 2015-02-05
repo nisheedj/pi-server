@@ -1,2 +1,5 @@
 /*global define*/
-define([], function() {});
+define([
+  './VoiceLanguages',
+  './VoiceService'
+], function() {});
