@@ -22,6 +22,7 @@
     "require": true,
     "console": true,
     "_": true,
-    "define":true
+    "define":true,
+    "webkitSpeechRecognition":true
   }
 }

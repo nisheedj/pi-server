@@ -3,6 +3,58 @@
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
       <h1 class="text-center">{{title}}</h1>
       <hr>
+      
+      <div class="row" ng-if="!isSpeechSupported">
+        <div class="col-xs-12">
+          <div class="alert alert-danger" role="alert">
+            <h4>Oh snap!</h4>
+            <p>
+              Seems that you are using an older verison of chrome that does not support `Webkit Voice Api`.
+              Upgrade to <a href="//www.google.com/chrome">Chrome</a>
+              version 25 or later.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pi-quad-voice" ng-show="isSpeechSupported">
+        
+        <div class="row">
+          <div class="col-xs-12 col-md-6 form-group">
+            <label for="pi-voice-language">Select Language</label>
+            <select id="pi-voice-language" class="form-control" ng-options="l.value as l.label for l in languages" ng-model="selectedLanguage">
+              <option value="">--Select Language--</option>
+            </select>
+          </div>
+          <div class="col-xs-12 col-md-6 form-group" ng-hide="dialects.length === 1">
+            <label for="pi-voice-dialect">Select Dialect</label>
+            <select id="pi-voice-dialect" class="form-control" ng-options="d.value as d.label for d in dialects" ng-model="selectedDialect">
+              <option value="">--Select Dialect--</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <p class="bg-primary pi-quad-language">
+              Language: {{languages[selectedLanguage].label}} 
+              <br> 
+              Dialect: {{selectedDialect}} 
+            </p>
+          </div>
+          <div class="col-xs-12 col-md-6">
+            <p id="pi-quad-voice-input" class="bg-success pi-quad-language"></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12 col-md-6">
+            <button type="button" class="btn btn-success btn-lg btn-block" ng-show="selectedDialect && !recognizing" ng-click="toggleRecognition()">Start</button>
+            <button type="button" class="btn btn-danger btn-lg btn-block" ng-show="recognizing" ng-click="toggleRecognition()">Stop</button>
+          </div>
+        </div> 
+      
+      </div>
     </div>
   </div>
 </div>

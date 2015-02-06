@@ -103,7 +103,11 @@ module.exports = function(grunt) {
         options: {
           compress: true,
           modifyVars: {
-            'icon-font-path': '"../fonts/bootstrap/"'
+            'icon-font-path': '"../fonts/bootstrap/"',
+            'border-radius-base': '0',
+            'border-radius-large': '0',
+            'border-radius-small': '0',
+            'font-family-sans-serif':'"Open Sans", sans-serif'
           }
         },
         files: {
@@ -181,7 +185,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('first', ['clean:first', 'copy:first']);
 
-  grunt.registerTask('build', ['clean:build', 'less:bootstrap', 'less:piQuadApp', 'jshint:piQuadApp', 'requirejs:piQuadApp','watch']);
+  grunt.registerTask('build', ['clean:build', 'less:bootstrap', 'less:piQuadApp', 'jshint:piQuadApp', 'requirejs:piQuadApp', 'watch']);
 
   grunt.registerTask('unit', ['karma:piQuadApp']);
 
