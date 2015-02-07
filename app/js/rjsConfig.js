@@ -9,7 +9,8 @@ require.config({
     angularsanitize: 'vendor/angular-sanitize.min',
     angularanimate: 'vendor/angular-animate.min',
     underscore: 'vendor/underscore-min',
-    socketio: 'vendor/socket.io'
+    socketio: 'vendor/socket.io',
+    binaryjs: 'vendor/binary'
   },
   shim: {
     angular: {
@@ -30,6 +31,10 @@ require.config({
     },
     socketio: {
       exports: 'io'
+    },
+    binaryjs: {
+      deps: ['socketio'],
+      exports: 'BinaryClient'
     }
   }
 });

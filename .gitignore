@@ -44,3 +44,7 @@ coverage
 app/fonts/bootstrap
 app/css
 app/less/bootstrap
+
+#Voice files
+
+voice.wav

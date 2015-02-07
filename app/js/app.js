@@ -3,6 +3,7 @@ define([
   'angular',
   'jquery',
   'socketio',
+  'binaryjs',
   'angularroute',
   'angularsanitize',
   'angularanimate',

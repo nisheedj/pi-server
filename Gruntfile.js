@@ -19,6 +19,10 @@ module.exports = function(grunt) {
           dest: 'app/js/vendor/socket.io.js'
         }, {
           nonull: true,
+          src: 'node_modules/binaryjs/dist/binary.js',
+          dest: 'app/js/vendor/binary.js'
+        }, {
+          nonull: true,
           expand: true,
           cwd: 'bower_components/jquery/dist',
           src: ['**'],
@@ -107,7 +111,7 @@ module.exports = function(grunt) {
             'border-radius-base': '0',
             'border-radius-large': '0',
             'border-radius-small': '0',
-            'font-family-sans-serif':'"Open Sans", sans-serif'
+            'font-family-sans-serif': '"Open Sans", sans-serif'
           }
         },
         files: {
