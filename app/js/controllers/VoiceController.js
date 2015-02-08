@@ -1,17 +1,6 @@
-define(['./module', 'binaryjs'], function(controllerModule, BinaryClient) {
+define(['./module'], function(controllerModule) {
   controllerModule.controller('VoiceController', ['$scope', 'VoiceService',
     function($scope, VoiceService) {
-
-      $scope.recorder = null;
-      $scope.stream = null;
-
-      $scope.binaryClient = new BinaryClient('ws://localhost:9001');
-      $scope.binaryClient.on('open', function() {
-        console.log('Voice Binary Client Open');
-        $scope.stream = window.Stream = $scope.binaryClient.createStream();
-        VoiceService.webRecorder($scope.recorder, $scope.stream);
-      });
-
 
       $scope.title = 'Pi Quad Voice Controls';
       $scope.isSpeechSupported = VoiceService.speechSupport();

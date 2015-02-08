@@ -11,6 +11,10 @@ define(['./app'], function(app) {
         controller:'VoiceController',
         templateUrl:'partials/voice-control.html'
       })
+      .when('/voice-wit-control',{
+        controller:'VoiceWitController',
+        templateUrl:'partials/voice-wit-control.html'
+      })
       .otherwise('/');
     }
   ]);

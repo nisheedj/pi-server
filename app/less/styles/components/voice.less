@@ -1,3 +1,34 @@
 .pi-quad-language{
   padding: 15px;
 }
+
+
+.pi-microphone{
+  position: relative;
+   width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  cursor: pointer;
+
+  .pi-microphone-loader,.pi-icon-microphone{
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top:0;
+    left:0;
+
+    &.pi-microphone-loading{
+      background:url('../img/mic-loader.GIF') no-repeat center center;
+    }
+  }
+
+  .pi-icon-microphone{
+    font-size: 10rem;
+    line-height: 150px;
+    color: #CCCCCC;
+
+    &.pi-icon-microphone-record{
+      color: #e74c3c;
+    }
+  }
+}

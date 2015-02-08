@@ -1,13 +1,15 @@
 define(['./module', 'underscore'], function(serviceModule, _) {
-  serviceModule.factory('VoiceService', ['VoiceLanguages',
-    function(VoiceLanguages) {
+  serviceModule.factory('VoiceService', ['VoiceLanguages', '$rootScope',
+    function(VoiceLanguages, $rootScope) {
+
+      var self = this;
 
       var _constriants = {
         audio: true,
         video: false
       };
 
-      var _webRecorder = function(recorder, socketStream) {
+      var _webRecorder = function(socketStream) {
 
         var _float32ToInt16 = function(buffer) {
           var l = buffer.length;
@@ -17,6 +19,8 @@ define(['./module', 'underscore'], function(serviceModule, _) {
           }
           return buf.buffer;
         };
+
+        var _recording = false;
 
         var _initializeWebRecorder = function(stream) {
           var audioContext = new window.AudioContext();
@@ -30,6 +34,10 @@ define(['./module', 'underscore'], function(serviceModule, _) {
           audioInput.connect(recorder);
           // connect our recorder to the previous destination
           recorder.connect(audioContext.destination);
+
+          self.recorder = recorder;
+
+          $rootScope.$emit('PiQuadApp:NLP_START');
         };
 
         var _webRecorderProcess = function(e) {
@@ -44,7 +52,6 @@ define(['./module', 'underscore'], function(serviceModule, _) {
         if (_isGetUserMediaSupported()) {
           navigator.getUserMedia(_constriants, _initializeWebRecorder, _errorWebRecorder);
         }
-        return false;
       };
 
       var _recoginitionInstance = function() {
@@ -100,6 +107,20 @@ define(['./module', 'underscore'], function(serviceModule, _) {
         return navigator.getUserMedia;
       };
 
+      this.getRecorder = function() {
+        return self.recorder;
+      };
+
+      this.disconnectRecorder = function() {
+        if (self.getRecorder()) {
+          self.getRecorder().disconnect();
+          $rootScope.$emit('PiQuadApp:NLP_STOP');
+          return true;
+        } else {
+          return false;
+        }
+      };
+
       return {
         getLanguages: _getLanguages,
         getDialects: _getDialects,
@@ -107,7 +128,9 @@ define(['./module', 'underscore'], function(serviceModule, _) {
         defaultLanguage: 6,
         defaultDialect: 'en-IN',
         recognition: _recoginitionInstance(),
-        webRecorder: _webRecorder
+        webRecorder: _webRecorder,
+        recorder: this.getRecorder,
+        disconnectRecorder: this.disconnectRecorder
       };
     }
   ]);

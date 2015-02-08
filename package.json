@@ -49,8 +49,10 @@
   },
   "dependencies": {
     "binaryjs": "^0.2.1",
+    "colors": "^1.0.3",
     "express": "^4.11.2",
     "johnny-five": "^0.8.40",
+    "node-wit": "^1.1.0",
     "socket.io": "^1.3.3"
   }
 }
