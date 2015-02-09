@@ -3,5 +3,6 @@ define([
   './PiQuadController',
   './HomeController',
   './VoiceController',
-  './VoiceWitController'
+  './VoiceWitServerController',
+  './VoiceWitClientController',
 ], function() {});

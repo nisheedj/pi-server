@@ -10,7 +10,8 @@ require.config({
     angularanimate: 'vendor/angular-animate.min',
     underscore: 'vendor/underscore-min',
     socketio: 'vendor/socket.io',
-    binaryjs: 'vendor/binary'
+    binaryjs: 'vendor/binary',
+    wit: 'vendor/microphone.min'
   },
   shim: {
     angular: {
@@ -35,6 +36,9 @@ require.config({
     binaryjs: {
       deps: ['socketio'],
       exports: 'BinaryClient'
+    },
+    wit: {
+      exports: 'Wit'
     }
   }
 });

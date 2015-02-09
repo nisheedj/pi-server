@@ -23,6 +23,16 @@ module.exports = function(grunt) {
           dest: 'app/js/vendor/binary.js'
         }, {
           nonull: true,
+          src: 'microphone-0.7.0/microphone.min.js',
+          dest: 'app/js/vendor/microphone.min.js'
+        }, {
+          nonull: true,
+          expand: true,
+          cwd: 'microphone-0.7.0/fonts',
+          src: ['**'],
+          dest: 'app/fonts/microphone/'
+        }, {
+          nonull: true,
           expand: true,
           cwd: 'bower_components/jquery/dist',
           src: ['**'],

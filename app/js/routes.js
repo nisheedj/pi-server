@@ -11,9 +11,13 @@ define(['./app'], function(app) {
         controller:'VoiceController',
         templateUrl:'partials/voice-control.html'
       })
-      .when('/voice-wit-control',{
-        controller:'VoiceWitController',
-        templateUrl:'partials/voice-wit-control.html'
+      .when('/voice-wit-control-server',{
+        controller:'VoiceWitServerController',
+        templateUrl:'partials/voice-wit-control-server.html'
+      })
+      .when('/voice-wit-control-client',{
+        controller:'VoiceWitClientController',
+        templateUrl:'partials/voice-wit-control-client.html'
       })
       .otherwise('/');
     }
